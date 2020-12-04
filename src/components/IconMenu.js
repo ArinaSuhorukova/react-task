@@ -17,15 +17,15 @@ const IconMenu = ({iconId, onIconChanged}) => {
 
     return (
         <div>
-            <Button className='ProductPanelElement' onClick={handleOpenMenu}>{iconList[iconId]}</Button>
+            <Button className='ProductPanel__content' onClick={handleOpenMenu}>{iconList[iconId]}</Button>
 
             {isMenuShown &&
-            <div className='ProductPanelElement IconMenu'>
+            <div className='ProductPanel__content ProductPanel__content__icon-menu'>
                 {
                     iconList.filter(el => el !== iconList[iconId]).map((el, index) => {
                         const iconIndex = iconList.findIndex(icon => icon === el);
                         return (
-                            <Button className='IconItem' key={iconIndex}
+                            <Button className='ProductPanel__content__icon-menu__element' key={iconIndex}
                                     onClick={() => handleChangeCurrentIcon(iconIndex)}>{el}</Button>
                         )
                     })

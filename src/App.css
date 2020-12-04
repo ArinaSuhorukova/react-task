@@ -1,15 +1,11 @@
-.App {
-    text-align: center;
-}
-
-.ProductPanel, .ProductListPanel, .ProductDetails {
+.ProductPanel, .ProductListPanel, .ProductDetails, .ProductListPanel__spinner {
     align-content: center;
     text-align: center;
     min-width: 500px;
     margin-top: 50px;
 }
 
-.ProductInfo{
+.ProductDetails__content{
     background-color: rgba(177, 189, 197, 0.67);
     border-radius: 5px;
     margin: auto;
@@ -17,32 +13,32 @@
     padding: 20px;
 }
 
-input.ProductPanelElement {
+input.ProductPanel__content {
     margin: 15px 0;
 }
 
-.ProductPanelElement, .ProductListElement {
+.ProductPanel__content, .Product {
     margin: 15px;
 }
 
-.ProductListElement {
+.Product {
     background-color: rgba(177, 189, 197, 0.67);
     border-radius: 5px;
     position: relative;
     padding: 5px;
 }
 
-.ProductItemElement{
+.ProductDetails__content__item, .ProductDetails__title, .Product__content, .Product__controls{
     margin: 15px;
 }
 
-.btn-group.RightCornerPanel {
+.btn-group.Product__controls__right {
     position: absolute;
     top: 0;
     right: 0;
 }
 
-.ProductItemIcon{
+.Product__icon{
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
@@ -54,7 +50,7 @@ input.ProductPanelElement {
     width: 60%;
 }
 
-.IconMenu {
+.ProductPanel__content__icon-menu {
     min-width: 500px;
     background-color: rgba(177, 189, 197, 0.67);
     border-radius: 5px;
@@ -63,7 +59,7 @@ input.ProductPanelElement {
     padding: 10px;
 }
 
-.IconItem {
+.ProductPanel__content__icon-menu__element {
     margin: 5px;
 }
 
@@ -77,7 +73,7 @@ svg.ButtonMenuIcon {
     height: 25px;
 }
 
-.CounterElement {
+.Counter__content {
     width: 7%;
     min-width: 40px;
 }

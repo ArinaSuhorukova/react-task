@@ -6,17 +6,11 @@ import CounterButtons from './CounterButtons';
 import {emptyProduct} from '../data/constants';
 import {addProduct, setMockedData} from '../redux/actions'
 import IconMenu from './IconMenu';
-import axios from "axios";
 
 const AddProductPanel = ({dispatch}) => {
 
     useEffect(() => {
-        axios.get('https://demo1714774.mockable.io/react_task_asuhorukova').then(response => {
-            dispatch(setMockedData(response.data))
-        }).catch(error => {
-                console.log(error)
-            }
-        );
+        dispatch(setMockedData());
     }, []);
 
     const [product, setProduct] = useState(emptyProduct);
@@ -47,12 +41,12 @@ const AddProductPanel = ({dispatch}) => {
             <h4>Add product to your cart list</h4>
 
             <Input id='ProductNameInput'
-                   className='ProductPanelElement'
+                   className='ProductPanel__content'
                    onChange={handleChangeInput('name')}
                    placeholder='Product name'
                    value={product.name}/>
             <Input id='ProductPriceInput'
-                   className='ProductPanelElement'
+                   className='ProductPanel__content'
                    onChange={handleChangeInput('price')}
                    placeholder='Product price'
                    type='number'
@@ -61,7 +55,7 @@ const AddProductPanel = ({dispatch}) => {
             <CounterButtons amount={product.amount} onChangeValue={handleChangeAmount}/>
             <IconMenu iconId={product.iconId} onIconChanged={handleChangeIcon}/>
 
-            <Button className='ProductPanelElement' onClick={handleAddProduct} disabled={isAddButtonDisabled()}>
+            <Button className='ProductPanel__content' onClick={handleAddProduct} disabled={isAddButtonDisabled()}>
                 Add to list
             </Button>
 

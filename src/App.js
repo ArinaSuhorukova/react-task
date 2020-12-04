@@ -1,25 +1,28 @@
 import './App.css';
 import AddProductPanel from "./components/AddProductPanel";
 import {Col, Container, Row} from 'reactstrap';
-import ProductListPanel from "./components/ProductList";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import ProductView from "./components/ProductDetails";
-import React from "react";
+import React, {lazy, Suspense} from "react";
+
+const ProductListPanel = lazy(() => import('./components/ProductList'));
+const ProductView = lazy(() => import('./components/ProductDetails'));
 
 function App() {
 
     return (
-        <Container className='MainPanel' fluid={true}>
+        <Container fluid={true}>
             <Row>
-                <Col className='LeftPanel'>
+                <Col>
                     <AddProductPanel/>
                 </Col>
-                <Col className='RightPanel'>
+                <Col>
                     <BrowserRouter>
-                        <Switch>
-                            <Route exact path='/' component={ProductListPanel}/>
-                            <Route exact path='/:id' component={ProductView}/>
-                        </Switch>
+                        <Suspense fallback={<div/>}>
+                            <Switch>
+                                <Route exact path='/' component={ProductListPanel}/>
+                                <Route exact path='/:id' component={ProductView}/>
+                            </Switch>
+                        </Suspense>
                     </BrowserRouter>
                 </Col>
             </Row>

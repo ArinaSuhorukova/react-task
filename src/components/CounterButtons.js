@@ -4,13 +4,13 @@ import {Button} from 'reactstrap';
 const CounterButtons = ({amount, onChangeValue}) => {
 
     return (
-        <div className='Counter ProductPanelElement'>
-            <Button className='CounterElement' disabled={amount === 1}
+        <div className='Counter'>
+            <Button className='Counter__content' disabled={amount === 1}
                     onClick={() => onChangeValue(amount - 1)}>-</Button>
 
-            <label className='CounterElement'>{amount}</label>
+            <label className='Counter__content'>{amount}</label>
 
-            <Button className='CounterElement'
+            <Button className='Counter__content'
                     onClick={() => onChangeValue(amount + 1)}>+</Button>
         </div>
     );
